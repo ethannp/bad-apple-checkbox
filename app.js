@@ -130,14 +130,16 @@ function draw(array) {
         }
     }
     for (let i = 0; i < actualheight; i += 1) {
+        let decoded = de(array[Math.floor(i * (360 / actualheight))])
         for (let j = 0; j < actualwidth; j += 1) {
-            if (de(array[Math.floor(i * (360 / actualheight))]).charAt(Math.floor(j * (480 / actualwidth))) == "0") {
+            if (decoded.charAt(Math.floor(j * (480 / actualwidth))) == "0") {
                 try {
                     document.getElementById("" + (i < 10 ? "a" + i : i) + (j < 10 ? "a" + j : j)).checked = true;
                 } catch (TypeError) {}
             }
         }
     }
+
 }
 
 function en(c) {
